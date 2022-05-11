@@ -19,13 +19,14 @@ export default function DraggablePhoto({ src }) {
     });
   }, [src, api]);
 
-  const { isDragging, attributes, listeners, setNodeRef } = useDraggable({
+  const dndConfig = {
     id: src,
-  });
+  };
 
-  const { isOver, setNodeRef: setDroppableRef } = useDroppable({
-    id: src,
-  });
+  const { isDragging, attributes, listeners, setNodeRef } =
+    useDraggable(dndConfig);
+
+  const { isOver, setNodeRef: setDroppableRef } = useDroppable(dndConfig);
 
   return (
     <PhotoContainer

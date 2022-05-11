@@ -40,20 +40,20 @@ const data = [
   },
 ];
 
+const dragOverlayModifiers = [positioningFromEventStart];
+
 export default function TestPage() {
   const [pages, setPages] = useState(data);
   const [activeImage, setActiveImage] = useState(null);
   const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
 
-  const onDragStart = (e) => {
-    if (e.active) {
-      setActiveImage(e.active.id);
+  const onDragStart = ({ active }) => {
+    if (active) {
+      setActiveImage(active.id);
     }
   };
 
-  const onDragEnd = (e) => {
-    const { over } = e;
-
+  const onDragEnd = ({ over }) => {
     if (over?.id && activeImage && over?.id !== activeImage) {
       const updatedPages = pages.map((page) => ({
         ...page,
@@ -84,7 +84,7 @@ export default function TestPage() {
       >
         <PrintPage data={pages} />
         <DragOverlay
-          modifiers={[positioningFromEventStart]}
+          modifiers={dragOverlayModifiers}
           image={activeImage}
           dropAnimation={null}
         >

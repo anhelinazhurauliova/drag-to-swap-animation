@@ -1,5 +1,7 @@
 import { getEventCoordinates, isKeyboardEvent } from "@dnd-kit/utilities";
 
+const dragOverlayWidth = 40;
+
 export const positioningFromEventStart = ({
   activatorEvent,
   activeNodeRect,
@@ -11,8 +13,8 @@ export const positioningFromEventStart = ({
 
     return {
       ...transform,
-      x: transform.x + activatorX - activeNodeRect.left - 40, //'40' is based on the overlay measurements
-      y: transform.y + activatorY - activeNodeRect.top - 40,
+      x: transform.x + activatorX - activeNodeRect.left - dragOverlayWidth,
+      y: transform.y + activatorY - activeNodeRect.top - dragOverlayWidth,
     };
   }
 
