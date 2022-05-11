@@ -11,8 +11,8 @@ export const positioningFromEventStart = ({
 
     return {
       ...transform,
-      x: transform.x + activatorX - activeNodeRect.left - 25, //'25' is based on the overlay measurements
-      y: transform.y + activatorY - activeNodeRect.top - 25,
+      x: transform.x + activatorX - activeNodeRect.left - 40, //'40' is based on the overlay measurements
+      y: transform.y + activatorY - activeNodeRect.top - 40,
     };
   }
 

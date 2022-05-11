@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { DragOverlay as DndDragOverlay } from "@dnd-kit/core";
-import { animated } from "react-spring";
 
 export const PageHeader = styled.div`
   width: 600px;
